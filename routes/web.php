@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/spots', 'App\Http\Controllers\SpotController@get');
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/spots', 'App\Http\Controllers\SpotController@put');
